@@ -1,7 +1,7 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: nativeBuildConfig
+  name: quarkus-native
   labels:
     quarkus-buildtype: 'native'
 spec:
@@ -17,6 +17,7 @@ spec:
       USER root
       WORKDIR /build/
       COPY . /build/
+      RUN ls -la
       RUN ./mvnw clean package -Pnative
       
       FROM registry.redhat.io/ubi8/ubi-minimal
@@ -27,6 +28,6 @@ spec:
   output:
     to:
       kind: ImageStream
-      name: testApp:latest
+      name: "testapp"
   triggers:
     - type: ConfigChange

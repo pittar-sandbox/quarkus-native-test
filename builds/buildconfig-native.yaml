@@ -12,6 +12,7 @@ spec:
     git:
       uri: https://github.com/pittar-sandbox/quarkus-native-test.git
       ref: main
+    contextDir: .
     # dockerfile: |-
     #   FROM registry.access.redhat.com/quarkus/mandrel-for-jdk-21-rhel8:23.1 AS builder
     #   USER root
